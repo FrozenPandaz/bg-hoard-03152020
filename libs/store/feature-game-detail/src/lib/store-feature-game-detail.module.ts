@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Route } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { GameDetailComponent } from './game-detail/game-detail.component';
 import { MatCardModule } from '@angular/material/card';
-
-export const storeFeatureGameDetailRoutes: Route[] = [
-  {
-    path: '',
-    pathMatch: 'full',
-    component: GameDetailComponent
-  }
-];
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(storeFeatureGameDetailRoutes), MatCardModule],
-  declarations: [GameDetailComponent],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatButtonModule,
+    RouterModule.forChild([
+      { path: '', pathMatch: 'full', component: GameDetailComponent }
+    ])
+  ],
+  declarations: [GameDetailComponent]
 })
 export class StoreFeatureGameDetailModule {}
